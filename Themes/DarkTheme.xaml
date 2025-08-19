@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Кольори для темної теми -->
+	<SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF272727"/>
+	<SolidColorBrush x:Key="DisplayBackgroundBrush" Color="#FF272727"/>
+	<SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#FF404040"/>
+	<SolidColorBrush x:Key="ButtonForegroundBrush" Color="White"/>
+	<SolidColorBrush x:Key="DisplayForegroundBrush" Color="White"/>
+	<SolidColorBrush x:Key="OperationButtonBrush" Color="#FF6200EA"/>
+
+	<!-- Стиль кнопок для темної теми -->
+	<Style x:Key="CalculatorButtonStyle" TargetType="Button">
+		<Setter Property="Background" Value="{StaticResource ButtonBackgroundBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource ButtonForegroundBrush}"/>
+		<Setter Property="FontSize" Value="24"/>
+		<Setter Property="BorderBrush" Value="{x:Null}"/>
+		<Setter Property="BorderThickness" Value="0"/>
+		<Setter Property="Margin" Value="1.5"/>
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="VerticalAlignment" Value="Stretch"/>
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" Value="#FF505050"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<!-- Стиль для операційних кнопок -->
+	<Style x:Key="OperationButtonStyle" TargetType="Button" BasedOn="{StaticResource CalculatorButtonStyle}">
+		<Setter Property="Background" Value="{StaticResource OperationButtonBrush}"/>
+		<Setter Property="Foreground" Value="White"/>
+	</Style>
+
+</ResourceDictionary>
