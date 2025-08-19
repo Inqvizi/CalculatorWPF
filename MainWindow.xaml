@@ -11,7 +11,7 @@
         Title="CalculatorWPF" Height="550" Width="400">
 
     <Window.Resources>
-        <!-- Завантажуємо темну тему за замовчуванням -->
+        <!-- DarkThemeByDefault -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
@@ -21,12 +21,12 @@
 
     <Grid Margin="3">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Кнопка перемикання теми -->
+        <!-- SwitchThemeButton -->
         <Button x:Name="BtnThemeToggle" 
                 Content="🌙" 
                 Grid.Row="0" 
