@@ -47,6 +47,8 @@ namespace CalculatorWPF
             {
                 DisplayTextBox.Text += number;
             }
+
+            HistoryTextBlock.Text += number;
         }
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
@@ -57,11 +59,14 @@ namespace CalculatorWPF
             isOperationClicked = false;
             isNewNumber = true;
             DisplayTextBox.Text = "0";
+            HistoryTextBlock.Text = "";
         }
 
         private void BtnOperation_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
+
+            HistoryTextBlock.Text += " " + button.Content.ToString() + " ";
 
             if (!isOperationClicked)
             {
@@ -71,7 +76,10 @@ namespace CalculatorWPF
             {
                 BtnEquals_Click(sender, e);
                 firstNumber = Convert.ToDouble(DisplayTextBox.Text);
-            }
+             
+                HistoryTextBlock.Text = firstNumber.ToString() + " " + button.Content.ToString() + " ";
+            }   
+            
 
             operation = button.Tag.ToString();
             isOperationClicked = true;
@@ -101,7 +109,9 @@ namespace CalculatorWPF
                         DisplayTextBox.Text = "You cant't divide by 0!";
                     break;
             }
-
+            
+            
+            HistoryTextBlock.Text += " " + "=";
             DisplayTextBox.Text = result.ToString();
         }
 
@@ -128,11 +138,13 @@ namespace CalculatorWPF
             if (isOperationClicked)
             {
                 number = firstNumber * number / 100;
+                HistoryTextBlock.Text = firstNumber + " " + operation +  " " + number;
                 DisplayTextBox.Text = number.ToString();
             }
             else
             {
                 number = number / 100;
+                HistoryTextBlock.Text = number.ToString();
                 DisplayTextBox.Text = number.ToString();
             }
 
@@ -172,6 +184,7 @@ namespace CalculatorWPF
             if (double.TryParse(DisplayTextBox.Text, out double currentValue))
             {
                 currentValue = -currentValue;
+                
                 DisplayTextBox.Text = currentValue.ToString();
             }
         }

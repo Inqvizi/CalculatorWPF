@@ -26,10 +26,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
         <!-- SwitchThemeButton -->
         <Button x:Name="BtnThemeToggle" 
                 Content="🌙" 
-                Grid.Row="0" 
+                Grid.Row="0"
+                Grid.Column="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Width="30" 
@@ -39,8 +47,18 @@
                 BorderBrush="Transparent"
                 Foreground="{DynamicResource ButtonForegroundBrush}"
                 Click="BtnThemeToggle_Click"
-                ToolTip="Theme switching"
                 Margin="0,0,10,0"/>
+
+        <!-- HistoryTextBlock -->
+        <TextBlock x:Name="HistoryTextBlock" 
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   FontSize="16" 
+                   Foreground="{DynamicResource DisplayForegroundBrush}" 
+                   Background="{DynamicResource DisplayBackgroundBrush}"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   />
 
         <!-- Display -->
         <TextBox x:Name="DisplayTextBox" 
@@ -55,7 +73,7 @@
                  IsReadOnly="True"
                  IsHitTestVisible="False"
                  Margin="0,0,0,10"/>
-        
+
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -70,10 +88,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- ClearButton -->
             <Button x:Name="BtnClear" Content="C"  Grid.Row="0" Click="BtnClear_Click"  Grid.Column="0" Style="{DynamicResource CalculatorButtonStyle}"/>
-            
+
             <!-- PlusMinusButton -->
             <Button x:Name="BtnPlusMinus" Content="±" Grid.Row="0" Grid.Column="1" Style="{DynamicResource CalculatorButtonStyle}" Click="BtnPlusMinus_Click"/>
 
@@ -84,46 +102,46 @@
             <Button x:Name="BtnDivide" Content="÷" Grid.Row="0" Grid.Column="3" Click="BtnOperation_Click" Tag="/" Style="{DynamicResource CalculatorButtonStyle}"/>
 
             <!-- 7Button -->
-            <Button x:Name="Bt7" Content="7" Grid.Row="1" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Bt7" Content="7" Grid.Row="1" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 8Button -->
-            <Button x:Name="Bt8" Content="8" Grid.Row="1" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Bt8" Content="8" Grid.Row="1" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 9Button -->
-            <Button x:Name="Bt9" Content="9" Grid.Row="1" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Bt9" Content="9" Grid.Row="1" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- MultiplyButton -->
             <Button x:Name="BtnMultiply" Content="×" Grid.Row="1" Grid.Column="3" Click="BtnOperation_Click" Tag="*" Style="{DynamicResource CalculatorButtonStyle}"/>
 
             <!-- 4Button -->
-            <Button x:Name="Btn4" Content="4" Grid.Row="2" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn4" Content="4" Grid.Row="2" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 5Button -->
-            <Button x:Name="Btn5" Content="5" Grid.Row="2" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn5" Content="5" Grid.Row="2" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 6Button -->
-            <Button x:Name="Btn6" Content="6" Grid.Row="2" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
-            
+            <Button x:Name="Btn6" Content="6" Grid.Row="2" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
+
             <!-- MinusButton -->
             <Button x:Name="BtnMinus" Content="-" Grid.Row="2" Grid.Column="3" Click="BtnOperation_Click" Tag="-" Style="{DynamicResource CalculatorButtonStyle}"/>
 
             <!-- 1Button -->
-            <Button x:Name="Btn1" Content="1" Grid.Row="3" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn1" Content="1" Grid.Row="3" Grid.Column="0" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 2Button -->
-            <Button x:Name="Btn2" Content="2" Grid.Row="3" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn2" Content="2" Grid.Row="3" Grid.Column="1" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- 3Button -->
-            <Button x:Name="Btn3" Content="3" Grid.Row="3" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn3" Content="3" Grid.Row="3" Grid.Column="2" Click="BtnNumber_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- PlusButton -->
             <Button x:Name="BtnPlus" Content="+" Grid.Row="3" Grid.Column="3" Click="BtnOperation_Click" Tag="+" Style="{DynamicResource CalculatorButtonStyle}"/>
 
             <!-- 0Button -->
-            <Button x:Name="Btn0" Content="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnNumber_Click"  Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="Btn0" Content="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnNumber_Click"  Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- DotButton -->
-            <Button x:Name="BtnDot" Content="." Grid.Row="4" Grid.Column="2" Click="BtnDot_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
+            <Button x:Name="BtnDot" Content="." Grid.Row="4" Grid.Column="2" Click="BtnDot_Click" Style="{DynamicResource NumberButtonStyle}"/>
 
             <!-- EqualsButton -->
             <Button x:Name="BtnEquals" Content="=" Grid.Row="4" Grid.Column="3" Click="BtnEquals_Click" Style="{DynamicResource CalculatorButtonStyle}"/>
