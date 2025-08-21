@@ -104,9 +104,14 @@ namespace CalculatorWPF
                     break;
                 case "/":
                     if (secondNumber != 0)
+                    {
                         result = firstNumber / secondNumber;
+                    }
                     else
-                        DisplayTextBox.Text = "You cant't divide by 0!";
+                    {
+                        MessageBox.Show("You can't divide by 0!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                     break;
             }
             
